@@ -1,0 +1,102 @@
+<nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-3 shadow-sm">
+  <div class="container">
+
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold d-flex align-items-center" href="/listings">
+      <i class="fa-regular fa-compass fs-3 text-danger"></i>
+      <span class="ms-2">Explore</span>
+    </a>
+
+    <!-- Mobile toggle -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" 
+            data-bs-target="#navbarContent">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Navbar items -->
+    <div class="collapse navbar-collapse" id="navbarContent">
+
+      <!-- Center Search Bar -->
+      <form class="search-bar mx-auto" method="post" action="/search">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="search" name="search" placeholder="Search anything..." required>
+        <button type="submit">Search</button>
+      </form>
+
+      <!-- Right Side Links -->
+      <ul class="navbar-nav ms-auto align-items-center">
+
+        <li class="nav-item">
+          <a class="nav-link" href="/listings/new">Airbnb your home</a>
+        </li>
+
+        <% if(!currUser){ %>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="/signup">Sign Up</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="/login">Log In</a>
+        </li>
+        <% } %>
+
+        <% if(currUser){ %>
+        <li class="nav-item">
+          <a class="nav-link fw-bold" href="/logout">Log Out</a>
+        </li>
+        <% } %>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Styles -->
+<style>
+  /* Search bar container */
+  .search-bar {
+    background: #fff;
+    border-radius: 40px;
+    padding: 6px 14px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.12);
+    display: flex;
+    align-items: center;
+    width: 380px;
+    transition: all .25s ease;
+  }
+
+  .search-bar:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.18);
+  }
+
+  .search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    padding: 8px;
+    font-size: 1rem;
+  }
+
+  .search-bar button {
+    background: #007bff;
+    border: none;
+    padding: 8px 18px;
+    border-radius: 40px;
+    color: white;
+    font-weight: bold;
+    transition: .25s;
+  }
+
+  .search-bar button:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+  }
+
+  .search-icon {
+    color: #666;
+    margin-right: 10px;
+  }
+
+  .navbar-brand span {
+    font-size: 1.2rem;
+  }
+</style>
